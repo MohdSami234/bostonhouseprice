@@ -1,6 +1,6 @@
-FROM python:3.9
-COPY
-WORKDIR
-RUN
-EXPOSE
-CMD
+FROM python:3.7 
+COPY . /app
+WORKDIR /app
+RUN pip intall -r requirement.txt
+EXPOSE $PORT
+CMD gunicorn --workers=4 --bind 0.0.0.0:$PORN app:app
